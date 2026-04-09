@@ -1,4 +1,4 @@
-const API_URL = "http://tisha-internal-alb-774652898.us-east-1.elb.amazonaws.com";
+const API_URL = "http://${alb_dns}";
 
 async function fetchNotes() {
   const res = await fetch(`${API_URL}/notes`);
