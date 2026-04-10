@@ -1,39 +1,3 @@
-// import dotenv from "dotenv"
-// dotenv.config();
-
-// const express = require("express");
-// const cors = require("cors");
-// const db = require("./db");
-
-// const app = express();
-
-// app.use(cors());
-// app.use(express.json());
-
-// app.get("/notes", async (req, res) => {
-//   try{
-//   const [rows] = await db.query("SELECT * FROM notes");
-//   res.json(rows);
-//   }
-//   catch(err){
-//     res.status(500).json({error:err.message})
-//   }
-// });
-
-// app.post("/notes", async (req, res) => {
-//   try{
-//   const { text } = req.body;
-//   await db.query("INSERT INTO notes (text) VALUES (?)", [text]);
-//   res.json({ message: "Note added" });
-//   }catch(err){
-//     res.status(500).json({error:err.message})
-//   }
-
-// });
-
-// app.listen(3000, () => {
-//   console.log("Backend running on port 3000");
-// });
 import dotenv from "dotenv";
 dotenv.config(); // 🔥 MUST BE FIRST
  
@@ -43,7 +7,8 @@ import db from './db.js'
  
 const app = express();
  
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
  
 app.get("/notes", async (req, res) => {
